@@ -1,0 +1,70 @@
+@use "sass:map";
+@use "tools" as *;
+
+.text-center {
+    text-align: center;
+}
+
+@include make-colors("bg") using ($color) {
+    background: $color;
+    color: if($color == $light-color, map.get($colors-reverse, "light"), $white);
+}
+
+
+@include make-colors("text") using ($color) {
+    color: $color;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.overlay-img {
+    @include position($zIndex: -1);
+    background-size: cover;
+    &::before {
+        @include position;
+        background-color: $overlay-bg;
+    }
+    .img-fill & {
+        height: calc(100% + $navbar-height);
+        top: -$navbar-height;
+    }
+}
+
+.heading {
+    position: relative;
+    padding: $gutter-xl 0;
+    .overlay-img::before {
+        background-color: $heading-overlay-bg;
+    }
+    &.img-fill {
+        padding-bottom: $navbar-height;
+    }
+}
+
+#to-up {
+    display: none;
+    @include position($to-up-size, $to-up-size, fixed, 80%, 90%, $zIndex-to-up);
+    border-radius: $to-up-radius;
+    background: $secondary-color;
+    .fas {
+        color: $secondary-color;
+        position: relative;
+        @include transition(color, $delay: 0.1s);
+    }
+    &::after {
+        border-radius: $to-up-radius;
+        transform: scale(1);
+        @include transition(top, 0.3s, ease-in, 0.1s);
+    }
+    &:hover {
+        .fas {
+            color: $white;
+            animation: hvr-icon-up 0.3s ease-out;
+        }
+        &::after {
+            top: -100%;
+        }
+    }
+}

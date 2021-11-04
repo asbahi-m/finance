@@ -1,0 +1,26 @@
+@use "tools/variables" as *;
+/* All keyframes */
+// Hover On To Up Icon
+@keyframes hvr-icon-up {
+    0%, 100% {
+        top: 0;
+    }
+    40% {
+        top: 40%;
+    }
+}
+
+// Hover on Tabs Icon
+@keyframes hvr-icon-float {
+    100% {
+        #{$right-dir}: $gutter-md + 6px;
+    }
+}
+@keyframes hvr-icon-bob {
+    0%, 100% {
+        #{$right-dir}: $gutter-md + 6px;
+    }
+    50% {
+        #{$right-dir}: $gutter-md + 2px;
+    }
+}

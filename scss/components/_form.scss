@@ -1,0 +1,38 @@
+@use "sass:selector";
+@use "../tools" as *;
+
+form {
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        @include media-up("md") {
+            flex-direction: row;
+            margin-left: -$field-gutter;
+            margin-right: -$field-gutter;
+            padding-top: $field-gutter;
+            padding-bottom: $field-gutter;
+        }
+        .field {
+            padding: $field-gutter 0;
+            @include media-up("md") {
+                width: 33.33%;
+                flex-basis: 33.33%;
+                padding: 0 $field-gutter;
+            }
+        }
+    }
+    > .field {
+        padding-top: $field-gutter;
+        padding-bottom: $field-gutter;
+    }
+    #{selector.nest(".field", "input, textarea")} {
+        width: 100%;
+        padding: $input-padding;
+        border: 0;
+        border-radius: $radius-width;
+    }
+    textarea {
+        line-height: $line-height-md;
+        resize: vertical;
+    }
+}

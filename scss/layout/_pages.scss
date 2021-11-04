@@ -1,0 +1,86 @@
+@use "../tools" as *;
+@use "../components/nav";
+
+/* Style pages */
+.page {
+    .content {
+        padding-top: $section-gutter * 2;
+        padding-bottom: $section-gutter * 2;
+    }
+    $nav-active-color: $secondary-color;
+    .nav-pills {
+        @include media-up("lg") {
+            width: 33.33%;
+            flex-basis: 33.33%;
+        }
+        .nav-link {
+            position: relative;
+            border: 5px solid transparent;
+            color: $secondary-color;
+            background: $primary-color;
+            background-clip: padding-box !important;
+            &:hover:not(.active) {
+                color: $white;
+                background: $gray-70;
+            }
+            &.active {
+                color: $white;
+                background: $nav-active-color;
+            }
+            @include media-up("lg") {
+                padding: $gutter-lg $gutter-md;
+                border-radius: 0;
+                font-size: $font-size-md;
+                font-weight: bold;
+                &::after {
+                    @include insert-chevron($right-dir);
+                    position: absolute;
+                    #{$right-dir}: $gutter-md;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    @include transition;
+                }
+                &:hover:not(.active)::after {
+                    animation: hvr-icon-float 0.3s ease-in, hvr-icon-bob 1s ease-in-out 0.3s infinite;
+                }
+                &.active::after {
+                    font-size: $font-size-lg;
+                    animation-play-state: paused;
+                }
+            }
+        }
+    }
+    .img-content img {
+        max-width: 100%;
+    }
+
+    .contact-info {
+        @include media-up("md") {
+            display: flex;
+            .item {
+                width: 33.33%;
+                flex-basis: 33.33%;
+            }
+        }
+        .item {
+            padding: $gutter-xl*1.5 $gutter-base;
+            border: $gutter-base solid transparent;
+            text-align: center;
+            background: $light-color;
+            background-clip: padding-box;
+            a {
+                color: $primary-color;
+                font-weight: bold;
+                @include transition;
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+    .contact-form {
+        margin-top: $gutter-xl;
+        padding: $gutter-xl;
+        background: $primary-color;
+    }
+}

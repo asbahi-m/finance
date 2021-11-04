@@ -1,0 +1,39 @@
+@use "../tools" as *;
+// modal
+//  => modal-body
+//  => modal-header
+//      => modal-close
+//  => modal-content
+.modal {
+    @include position($height: 100vh, $position: fixed, $zIndex: $zIndex-modal);
+    display: none;
+    background: $modal-bg;
+    perspective: $perspective;
+    .modal-body {
+        height: 100%;
+        position: relative;
+        padding: $modal-padding;
+        @include transform-3d(rotateY(#{$minus-dir+180deg}) translateX(#{$minus-dir+100%}), $left-dir center);
+        @include transition(transform);
+        &.no-effect {
+            transform: none;
+        }
+        .modal-header {
+            position: absolute;
+            top: auto;
+            .btn {
+                border-radius: 0;
+                padding: $modal-btn-padding;
+                font-size: $font-size-base;
+            }
+        }
+        .modal-content {
+            height: 100%;
+            @extend %flex-center;
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}

@@ -10,82 +10,65 @@
 
     <!-- CSS Files -->
     <!-- <link rel="stylesheet" href="css/fontawesome.min.css" /> -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/media.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
 
   <body>
-    <button type="button" id="top"><i class="fas fa-chevron-up"></i></button>
-
-    <nav class="top-nav">
-      <div class="container">
-        <div><i class="far fa-clock"></i> Mon-Fri 09:00-17:00</div>
-        <div><i class="fas fa-phone-alt"></i> 090-080-0760</div>
-        <ul class="social">
-          <li>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-behance"></i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <button type="button" id="to-up" class="icon icon-primary"><i class="fas fa-chevron-up"></i></button>
 
     <header>
-      <div class="container">
-        <a class="brand" href="index.html">FINANCE BUSINESS</a>
-        <button type="button" class="navbar-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-        <nav class="navbar">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about-us.html">About</a></li>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
+      <nav class="top-nav">
+        <div class="container">
+          <div><i class="far fa-clock"></i> Mon-Fri 09:00-17:00</div>
+          <div><i class="fas fa-phone-alt"></i> 090-080-0760</div>
+          <ul class="social">
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-behance"></i></a></li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
+
+      <nav class="navbar navbar-light">
+        <div class="container">
+          <a class="navbar-brand text-white" href="index.html">FINANCE BUSINESS</a>
+          <button type="button" class="navbar-toggle"><i class="fas fa-bars"></i></button>
+          <ul class="navbar-nav collapse">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="services.html">Our Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main class="page">
-      <section id="page-banner" class="img-fill">
-        <div class="container">
-          <div class="item text-center">
-            <h1>Our Services</h1>
-            <span>JAR FINANCING FOR THAT FREEDOM OF FLEXIBLE BUREAU</span>
-          </div>
+      <section>
+        <div class="heading text-center text-light img-fill">
+            <div class="container">
+              <h1>Our Services</h1>
+              <span>JAR FINANCING FOR THAT FREEDOM OF FLEXIBLE BUREAU</span>
+            </div>
+            <div class="overlay-img" style="background-image: url('images/digital-currency.jpg')"></div>
         </div>
       </section>
 
       <section class="content">
         <div class="container">
-          <div id="tabs">
-            <ul class="tab-list">
-              <li class="ui-id-1" aria-control="tab-1" aria-selected="true">
-                <h2>Digital Currency</h2>
-                <i class="fas fa-chevron-right"></i>
-              </li>
-              <li class="ui-id-2" aria-control="tab-2" aria-selected="false">
-                <h2>Market Analysis</h2>
-                <i class="fas fa-chevron-right"></i>
-              </li>
-              <li class="ui-id-3" aria-control="tab-3" aria-selected="false">
-                <h2>Historical Data</h2>
-                <i class="fas fa-chevron-right"></i>
-              </li>
-            </ul>
+          <div class="tabs-wrap">
+            <nav class="nav nav-pills" role="tablist">
+              <button type="button" class="nav-link active" role="tab" aria-controls="content-1" aria-selected="true">Digital Currency</button>
+              <button type="button" class="nav-link" role="tab" aria-controls="content-2" aria-selected="false">Market Analysis</button>
+              <button type="button" class="nav-link" role="tab" aria-controls="content-3" aria-selected="false">Historical Data</button>
+            </nav>
 
             <div class="tab-content">
-              <article id="tab-1" aria-hidden="false">
-                <img src="images/digital-currency.jpg" />
+              <article id="content-1" class="inner-content active">
+                <div class="img-content">
+                  <img src="images/digital-currency.jpg" alt="Digital Currency" />
+                </div>
                 <h2>Digital Currency</h2>
                 <p>
                   Whatever maybe the eu developer. Nutrition price, but real
@@ -105,8 +88,10 @@
                 </p>
               </article>
 
-              <article id="tab-2" aria-hidden="true" style="display: none">
-                <img src="images/market-analysis.jpg" />
+              <article id="content-2" class="inner-content">
+                <div class="img-content">
+                  <img src="images/market-analysis.jpg" alt="Market Analysis" />
+                </div>
                 <h2>Market Analysis</h2>
                 <p>
                   Whatever maybe the eu developer. Nutrition price, but real
@@ -126,8 +111,10 @@
                 </p>
               </article>
 
-              <article id="tab-3" aria-hidden="true" style="display: none">
-                <img src="images/historical-data.jpg" />
+              <article id="content-3" class="inner-content">
+                <div class="img-content">
+                  <img src="images/historical-data.jpg" alt="Historical Data" />
+                </div>
                 <h2>Historical Data</h2>
                 <p>
                   Whatever maybe the eu developer. Nutrition price, but real
@@ -163,18 +150,10 @@
               sapien life.
             </p>
             <ul class="social">
-              <li>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-behance"></i></a>
-              </li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-behance"></i></a></li>
             </ul>
           </div>
 
@@ -212,8 +191,8 @@
               <div class="field">
                 <textarea rows="4" placeholder="Your Message"></textarea>
               </div>
-              <div class="text-center">
-                <button type="button" class="btn">Send Message</button>
+              <div class="submit text-center">
+                <button type="button" class="btn btn-light btn-outline">Send Message</button>
               </div>
             </form>
           </div>

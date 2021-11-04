@@ -1,0 +1,48 @@
+@use "../tools" as *;
+
+.icon, a.icon {
+    display: inline-block;
+    height: $icon-size;
+    width: $icon-size;
+    border-radius: $icon-radius;
+    line-height: $icon-size;
+    font-size: inherit;
+    text-align: center;
+    color: $gray;
+    background: $gray;
+    position: relative;
+    overflow: hidden;
+    transform: perspective(0) translateZ(0);
+    @include transition(color);
+    &::after {
+        @include position($zIndex: -1);
+        border-radius: $icon-radius;
+        background: $white;
+        transform: scale(2);
+        @include transition(transform);
+    }
+    &:hover {
+        color: $white;
+        &::after {
+            transform: scale(0);
+        }
+    }
+    @each $name, $color in $colors {
+        &.icon-#{$name} {
+            @if $name == "light" {
+                color: $gray-90;
+                background: $primary-color;
+            }
+            @else {
+                color: $light-color;
+                background: $light-color;
+            }
+            &:after {
+                background: $color;
+            }
+            &:hover {
+                color: $color;
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@use "sass:map";
+@use "sass:list";
+@use "variables" as *;
+
+@mixin position($height: 100%, $width: 100%, $position: absolute, $top: 0, $left: 0, $zIndex: auto) {
+    content: "";
+    height: $height;
+    width: $width;
+    position: $position;
+    top: $top;
+    #{$left-dir}: $left;
+    z-index: $zIndex;
+}
+
+@mixin transition($prop: all, $duration: 0.3s, $timing-fun: ease-out, $delay: 0s) {
+    transition: $prop $duration $timing-fun;
+    transition-delay: if($delay > 0, $delay, null);
+}
+
+@mixin transform-3d($props, $origin: center) {
+    transform: $props;
+    transform-origin: $origin;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+@mixin insert-chevron($dir-chevron) {
+    content: map.get($chevron, $dir-chevron);
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+}
+
+@mixin media-up($name, $breakpoints: $grid-breakpoints) {
+    $min: map.get($breakpoints, $name);
+    @media (min-width: $min) {
+        @content;
+    }
+}
+
+@mixin media-down($name, $breakpoints: $grid-breakpoints) {
+    $breakpoint-names: map.keys($breakpoints);
+    $n: list.index($breakpoint-names, $name);
+    $next: list.nth($breakpoint-names, $n + 1);
+    $max: map.get($breakpoints, $next) - 0.02;
+    @media (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin make-colors($prop) {
+    @each $name, $color in $colors {
+        .#{$prop}-#{$name} {
+            @content($color);
+        }
+    }
+}

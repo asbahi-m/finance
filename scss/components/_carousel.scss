@@ -1,0 +1,111 @@
+@use "../tools" as *;
+// carousel
+//  => carousel-inner
+//      => carousel-item
+//          => item-caption
+//              => item-title
+//              => item-desc
+//          => item-img + ovarlay-img
+//  => carousel-control
+//      => prev
+//      => next
+.carousel {
+    position: relative;
+    .carousel-item {
+        height: 100%;
+        width: 100%;
+        padding-top: $carousel-padding-y;
+        padding-bottom: $carousel-padding-y;
+        @include media-up("sm") {
+            padding-left: $carousel-padding-x;
+            padding-right: $carousel-padding-x;
+        }
+        @include media-up("lg") {
+            padding-top: $carousel-padding-y*1.5;
+            padding-bottom: $carousel-padding-y*1.5;
+        }
+        &:not(.active) {
+            display: none;
+        }
+    }
+    .item-title {
+        font-size: $font-size-lg;
+    }
+    .sub-title {
+        color: $primary-color;
+        @include media-up("sm") {
+            font-size: $font-size-md;
+        }
+    }
+    .item-desc {
+        margin-bottom: 20px;
+        font-weight: normal;
+        color: $light-color;
+        display: none;
+        @include media-up("sm") {
+            display: block;
+        }
+    }
+    .carousel-control {
+        .prev, .next {
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: $font-size-xl;
+            color: $primary-color;
+            opacity: 0.5;
+            @include transition(opacity);
+            &:hover {
+                opacity: 1;
+            }
+            @include media-down("xs") {
+                top: 100%;
+                transform: translateY(calc(-100% - $gutter-base));
+            }
+        }
+        .prev {
+            #{$left-dir}: $gutter-base;
+            @include media-down("xs") {
+                #{$left-dir}: calc(30%);
+            }
+            &::after {
+                @include insert-chevron($left-dir);
+            }
+        }
+        .next {
+            #{$right-dir}: $gutter-base;
+            @include media-down("xs") {
+                #{$right-dir}: calc(30%);
+            }
+            &::after {
+                @include insert-chevron($right-dir);
+            }
+        }
+    }
+    &.img-fill .carousel-item {
+        padding-top: $carousel-padding-x;
+        padding-bottom: $carousel-padding-x + $navbar-height;
+        @include media-down("xs") {
+            padding-top: $gutter-base;
+            padding-bottom: $gutter-base + $navbar-height;
+        }
+        @include media-up("xl") {
+            width: 50%;
+            padding-top: $carousel-padding-y;
+            padding-bottom: $carousel-padding-y + $navbar-height;
+        }
+    }
+    &.img-fill {
+        .carousel-control .prev,
+        .carousel-control .next {
+            top: calc((100% - $navbar-height)/2);
+            font-size: $font-size-xl + 10;
+            color: $light-color;
+            @include media-down("xs") {
+                top: 100%;
+            }
+        }
+    }
+}
+

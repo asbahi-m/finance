@@ -1,0 +1,183 @@
+@use "sass:color";
+@use "sass:string";
+
+// Colors
+$white:             #fff !default;
+$black:             #000 !default;
+$gray-10:           color.scale($black, $lightness: 90%) !default;
+$gray-30:           color.scale($black, $lightness: 70%) !default;
+$gray:              color.scale($black, $lightness: 50%) !default;
+$gray-70:           color.scale($black, $lightness: 30%) !default;
+$gray-90:           color.scale($black, $lightness: 10%) !default;
+$primary-color:     #a4c63b !default;
+$secondary-color:   #343434 !default;
+$light-color:       color.scale($white, $lightness: -3%) !default;
+
+// Colors Map
+$colors: (
+    "primary":      $primary-color,
+    "secondary":    $secondary-color,
+    "light":        $light-color,
+) !default;
+$colors-reverse: (
+    "primary":      $secondary-color,
+    "secondary":    $primary-color,
+    "light":        $gray-70,
+) !default;
+
+// Body Background
+$body-bg: $white !default;
+
+// Fonts Size
+$font-size-base:    16px !default;
+$font-size-sm:      $font-size-base - 2 !default;
+$font-size-md:      $font-size-base + 4 !default;
+$font-size-lg:      $font-size-base + 10 !default;
+$font-size-xl:      $font-size-base + 14 !default;
+
+$font-weight-base:  400 !default;
+
+// Line Height
+$line-height-base:  1.2 !default;
+$line-height-sm:    1 !default;
+$line-height-md:    1.5 !default;
+$line-height-lg:    2 !default;
+
+// sizes
+$size-base: 15px !default;
+$size-sm:   10px !default;
+$size-md:   20px !default;
+$size-lg:   30px !default;
+$size-xl:   40px !default;
+
+// Gutters
+$gutter-base:   $size-base !default;
+$gutter-sm:     $size-sm !default;
+$gutter-md:     $size-md !default;
+$gutter-lg:     $size-lg !default;
+$gutter-xl:     $size-xl !default;
+
+// Borders & Border Radius
+$border-width:      1px !default;
+$border-color:      $gray-10 !default;
+$border-primary:    $primary-color !default;
+$border-secondary:  $secondary-color !default;
+$border-light:      $light-color !default;
+$radius-width:      $gutter-md !default;
+
+// z-index
+$zIndex-to-up: 1000 !default;
+$zIndex-fixed: 1010 !default;
+$zIndex-modal: 1020 !default;
+
+////// Components
+    // Buttons
+    $btn-font-size:     $font-size-sm !default;
+    $btn-padding:       $gutter-sm $gutter-md !default;
+    $btn-raduis:        $gutter-md !default;
+    $btn-border-width:  $border-width !default;
+
+    // Carousel
+    $carousel-height:       500px !default;
+    $carousel-padding-y:    $gutter-xl*2 !default;
+    $carousel-padding-x:    $gutter-xl !default;
+
+    // Form
+    $form-padding:  $gutter-base !default;
+    $input-padding: $gutter-sm !default;
+    $field-gutter:  $gutter-sm !default;
+
+    // Icons
+    $icon-size:     30px !default;
+    $icon-radius:   50% !default;
+
+    // Modal
+    $modal-bg:          color.scale($black, $alpha: -20%) !default;
+    $modal-padding:     $gutter-base !default;
+    $modal-btn-padding: $gutter-sm $gutter-base !default;
+    $perspective:       1000px !default;
+
+    // Navs => nav-tabs, nav-pills
+    $nav-radius:        $btn-raduis !default;
+    $nav-border-width:  $border-width !default;
+    $nav-border-color:  $border-color !default;
+    $nav-link-padding:  $btn-padding !default;
+    $nav-color:         $primary-color !default;
+    $nav-active-color:  $gray-70 !default;
+
+    // Navbar
+    $navbar-height:         100px !default;
+    $navbar-padding:        $gutter-lg !default;
+    $toggle-size:           40px !default;
+    $toggle-media:          "sm" !default;
+    $collapse-width:        200px !default;
+    $collapse-link-padding: $gutter-base !default;
+    $collapse-color:        $secondary-color !default;
+    $collapse-bg:           $primary-color !default;
+    $collapse-link-border:  1px solid color.scale($collapse-bg, $lightness: 40%) !default;
+    $fixed-color:           $secondary-color !default;
+    $fixed-bg:              color.scale($primary-color, $lightness: 90%) !default;
+
+////// Classes
+    // Overlay
+    $overlay-bg:   color.scale($black, $alpha: -50%) !default;
+
+    // Heading
+    $heading-height:        200px !default;
+    $heading-overlay-bg:    color.scale($black, $alpha: -20%) !default;
+
+    // To Up
+    $to-up-size:    40px !default;
+    $to-up-radius:  0 !default;
+
+    $avatar-height: 60px !default;
+
+
+////// Layout
+    // Nav Top;
+    $nav-top-height: 40px !default;
+
+    // Main Sections
+    $section-gutter: $gutter-xl !default;
+
+    // Footer
+    $footer-bg:     $gray-90 !default;
+    $footer-color:  $white !default;
+    $footer-padding: $section-gutter*1.5 0 !default;
+    $footer-border-width: $border-width !default;
+    $footer-border-color: $gray-70 !default;
+
+// Grid System:
+$grid-columns:      12 !default;
+$grid-gutter-width: 30px !default;
+$grid-breakpoints: (
+    "xs": 0,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px
+) !default;
+
+$container-max-widths: (
+    "sm": 540px,
+    "md": 720px,
+    "lg": 960px,
+    "xl": 1140px
+) !default;
+
+
+$chevron: (
+    "left":     "\f053",
+    "right":    "\f054",
+    "up":       "\f077",
+    "down":     "\f078"
+) !default;
+
+// Variables with RTL Direction
+$rtl: false !default;
+
+$font-name: if(not $rtl, string.unquote("Arial, Tahoma"), "Traditional Arabic");
+$left-dir: if(not $rtl, left, right);
+$right-dir: if(not $rtl, right, left);
+$plus-dir: if(not $rtl, "", "-");
+$minus-dir: if(not $rtl, "-", "");

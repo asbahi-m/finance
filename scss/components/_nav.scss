@@ -1,0 +1,91 @@
+@use "../tools" as *;
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    &[role=tablist] {
+        margin-bottom: $gutter-base;
+    }
+}
+
+.nav-link {
+    display: block;
+    padding: $nav-link-padding;
+    color: $nav-color;
+    @include transition;
+    &:hover:not(.active) {
+        color: color-hvr($nav-color);
+    }
+}
+
+.nav-tabs {
+    border-bottom: $nav-border-width solid $nav-border-color;
+    .nav-link {
+        margin-bottom: -$nav-border-width;
+        border: $nav-border-width solid transparent;
+        border-top-left-radius: $nav-radius;
+        border-top-right-radius: $nav-radius;
+        &.active {
+            border-color: $nav-border-color $nav-border-color $white;
+            color: $nav-active-color;
+        }
+        &:hover:not(.active) {
+            color: color-hvr($nav-color);
+            border-color: $nav-border-color $nav-border-color $white;
+        }
+    }
+}
+
+.nav-pills {
+    .nav-link {
+        border-radius: $nav-radius;
+        &.active {
+            background: $nav-color;
+            color: $white;
+        }
+        &:hover:not(.active) {
+            background: $light-color;
+        }
+    }
+}
+
+.tab-content {
+    .inner-content {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
+
+@include media-up("lg") {
+    .tabs-wrap {
+        display: flex;
+        .nav {
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        [role=tablist] {
+            margin-bottom: 0;
+            margin-#{$right-dir}: $gutter-base;
+        }
+        .nav-tabs {
+            border-bottom: 0;
+            border-#{$right-dir}: $nav-border-width solid $nav-border-color;
+            .nav-link {
+                margin-bottom: 0;
+                margin-#{$right-dir}: -$nav-border-width;
+                border-top-#{$right-dir}-radius: 0;
+                border-bottom-#{$left-dir}-radius: $nav-radius;
+                &.active {
+                    border-bottom-color: $nav-border-color;
+                    border-#{$right-dir}-color: $white;
+                }
+                &:hover:not(.active) {
+                    border-bottom-color: $nav-border-color;
+                    border-#{$right-dir}-color: $white;
+                }
+            }
+        }
+    }
+}

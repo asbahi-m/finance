@@ -1,0 +1,49 @@
+@use "sass:color";
+@use "../tools" as *;
+@use "../components/navbar";
+
+/* Header Style */
+.top-nav {
+    $border-primary: color.scale($border-primary, $lightness: 40%);
+    max-height: $nav-top-height;
+    color: $white;
+    background: $primary-color;
+    font-size: $font-size-sm;
+    font-weight: bold;
+    .container {
+        display: flex;
+        align-items: center;
+        > {
+            :nth-child(n+1) {
+                padding: $gutter-sm $gutter-md;
+                border-#{$right-dir}: $border-width solid $border-primary;
+                @include media-down("sm") {
+                    padding: 10px;
+                    white-space: nowrap;
+                }
+            }
+            :first-child {
+                border-#{$left-dir}: $border-width solid $border-primary;
+            }
+        }
+        .social {
+            display: flex;
+            padding: 0;
+            margin-#{$left-dir}: auto;
+            list-style: none;
+            li {
+                .icon {
+                    border-radius: 0;
+                    display: block;
+                    height: $nav-top-height;
+                    width: $nav-top-height;
+                    line-height: $nav-top-height;
+                    border-#{$left-dir}: $border-width solid $border-primary;
+                }
+            }
+            @include media-down("xs") {
+                display: none;
+            }
+        }
+    }
+}

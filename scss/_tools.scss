@@ -1,0 +1,9 @@
+@forward "tools/variables";
+@forward "tools/functions";
+@forward "tools/mixins";
+
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,116 @@
+@use "sass:color";
+@use "../tools" as *;
+// navbar + [navbar-light | navbar-primary | navbar-secondary]
+//      => navbar-brand
+//      => navbar-toggle
+//      => navbar-nav + collapse
+//              => nav-item [optional]
+//                    => nav-link
+.navbar {
+    height: $navbar-height;
+    padding-top: $navbar-padding;
+    padding-bottom: $navbar-padding;
+    position: relative;
+    z-index: 1;
+    @extend %flex-center;
+    > .container {
+        @extend %flex-center;
+    }
+    .navbar-brand {
+        font-size: $font-size-md;
+        font-weight: bold;
+    }
+    .navbar-toggle {
+        display: none;
+        @include media-down($toggle-media) {
+            display: block;
+            height: $toggle-size;
+            width: $toggle-size;
+            margin-left: auto;
+            border: 1px solid $collapse-bg;
+            line-height: 1;
+            text-align: center;
+            font-size: $font-size-md;
+            color: $white;
+            background: $collapse-bg;
+            @include transition;
+            &:hover, &.active {
+                background: $secondary-color;
+                color: $collapse-bg;
+            }
+        }
+    }
+    .navbar-nav {
+        margin-#{$left-dir}: auto;
+        display: flex;
+        .nav-link {
+            position: relative;
+            &.active::after {
+                @include position(0, 0, $top: calc(50% - 7px), $left: 7px);
+                border: 7px solid transparent;
+            }
+            &:hover:not(.active) {
+                transform: translateY(-8px);
+            }
+        }
+    }
+
+    // Formating Fixed Navbar
+    &.fixed {
+        @include position($height: $navbar-height, $position: fixed, $zIndex: $zIndex-fixed);
+        background-color: $fixed-bg;
+        color: $fixed-color !important;
+        .navbar-brand {
+            color: $primary-color !important;
+        }
+        .nav-link:hover:not(.active) {
+            color: color-hvr($fixed-color) !important;
+        }
+        .nav-link.active::after {
+            border-#{$left-dir}-color: color-hvr($fixed-color) !important;
+        }
+    }
+
+    // Formating Collapse Navbar when Screen max-width: 767.98px
+    .collapse {
+        @include media-down($toggle-media) {
+            flex-direction: column;
+            @include position(auto, 0, $top: calc(100% - $navbar-padding), $left: 100%);
+            overflow: hidden;
+            opacity: 0;
+            color: $collapse-color !important;
+            background: $collapse-bg !important;
+            white-space: nowrap;
+            @include transition;
+            &.show {
+                width: $collapse-width;
+                #{$left-dir}: calc(100% - $collapse-width);
+                opacity: 1;
+            }
+            .nav-item {
+                border-bottom: $collapse-link-border;
+            }
+            .nav-link {
+                padding-top: $collapse-link-padding;
+                padding-bottom: $collapse-link-padding;
+                &:hover:not(.active) {
+                    color: color-hvr($collapse-color) !important;
+                }
+                &.active::after {
+                    border-#{$left-dir}-color: color-hvr($collapse-color) !important;
+                }
+            }
+        }
+    }
+}
+
+// Formating Navbar Classe Colors
+@include make-colors("navbar") using ($color) {
+    color: $color;
+    .nav-link:hover:not(.active) {
+        color: color-hvr($color);
+    }
+    .nav-link.active::after {
+        border-#{$left-dir}-color: $color;
+    }
+}

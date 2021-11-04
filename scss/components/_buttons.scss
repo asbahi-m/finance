@@ -1,0 +1,61 @@
+@use "../tools" as *;
+// btn => [btn-primary | btn-secondary | btn-light] => btn-outline
+.btn {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    padding: $btn-padding;
+    border-radius: $btn-raduis;
+    border: $btn-border-width solid transparent;
+    font-size: $btn-font-size;
+    font-weight: bold;
+    white-space: nowrap;
+    color: $white;
+    border-color: $gray-70;
+    transform: perspective(0) translateZ(0px);
+    @include transition(color);
+    &::before {
+        @include position($zIndex: -1);
+        background-color: $gray-70;
+        @include transition(transform);
+    }
+    &:hover {
+        color: $gray-70;
+        background-color: $white;
+        &::before {
+            transform: scaleY(0);
+        }
+    }
+}
+
+.btn-outline {
+    color: $gray-70;
+    &::before {
+        transform: scaleY(0);
+    }
+    &:hover {
+        color: $white;
+        background-color: transparent !important;
+        &::before {
+            transform: scaleY(1);
+        }
+    }
+}
+
+@include make-colors("btn") using ($color) {
+    color: if($color == $light-color, $primary-color, null);
+    border-color: $color;
+    &::before {
+        background-color: $color;
+    }
+    &:hover {
+        color: $color;
+        background-color: if($color == $light-color, $primary-color, null);
+    }
+    &.btn-outline {
+        color: $color;
+        &:hover {
+            color: if($color == $light-color, $primary-color, $white);
+        }
+    }
+}

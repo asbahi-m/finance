@@ -10,58 +10,48 @@
 
     <!-- CSS Files -->
     <!-- <link rel="stylesheet" href="css/fontawesome.min.css" /> -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/media.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
 
   <body>
-    <button type="button" id="top"><i class="fas fa-chevron-up"></i></button>
-
-    <nav class="top-nav">
-      <div class="container">
-        <div><i class="far fa-clock"></i> Mon-Fri 09:00-17:00</div>
-        <div><i class="fas fa-phone-alt"></i> 090-080-0760</div>
-        <ul class="social">
-          <li>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-behance"></i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <button type="button" id="to-up" class="icon icon-primary"><i class="fas fa-chevron-up"></i></button>
 
     <header>
-      <div class="container">
-        <a class="brand" href="index.html">FINANCE BUSINESS</a>
-        <button type="button" class="navbar-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-        <nav class="navbar">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about-us.html">About</a></li>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
+      <nav class="top-nav">
+        <div class="container">
+          <div><i class="far fa-clock"></i> Mon-Fri 09:00-17:00</div>
+          <div><i class="fas fa-phone-alt"></i> 090-080-0760</div>
+          <ul class="social">
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-behance"></i></a></li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
+
+      <nav class="navbar navbar-light">
+        <div class="container">
+          <a class="navbar-brand text-white" href="index.html">FINANCE BUSINESS</a>
+          <button type="button" class="navbar-toggle"><i class="fas fa-bars"></i></button>
+          <ul class="navbar-nav collapse">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="about-us.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Our Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main class="page">
-      <section id="page-banner" class="img-fill">
-        <div class="container">
-          <div class="item text-center">
-            <h1>About Us</h1>
-            <span>We have over 20 years of experience</span>
-          </div>
+      <section>
+        <div class="heading text-center text-light img-fill">
+            <div class="container">
+              <h1>About Us</h1>
+              <span>We have over 20 years of experience</span>
+            </div>
+            <div class="overlay-img" style="background-image: url('images/about-us.jpg')"></div>
         </div>
       </section>
 
@@ -86,7 +76,7 @@
               eget out. Even more than that, grief football enforcement needs
               developers.
             </p>
-            <a type="button" class="btn" href="#">READ MORE</a>
+            <a type="button" class="btn btn-primary" href="#">READ MORE</a>
           </div>
         </div>
       </section>
@@ -103,18 +93,10 @@
               sapien life.
             </p>
             <ul class="social">
-              <li>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-behance"></i></a>
-              </li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-behance"></i></a></li>
             </ul>
           </div>
 
@@ -152,8 +134,8 @@
               <div class="field">
                 <textarea rows="4" placeholder="Your Message"></textarea>
               </div>
-              <div class="text-center">
-                <button type="button" class="btn">Send Message</button>
+              <div class="submit text-center">
+                <button type="button" class="btn btn-light btn-outline">Send Message</button>
               </div>
             </form>
           </div>

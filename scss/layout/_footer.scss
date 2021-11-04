@@ -1,0 +1,78 @@
+@use "sass:color";
+@use "sass:math";
+@use "../tools" as *;
+
+footer {
+    padding: $footer-padding;
+    color: $footer-color;
+    background: $footer-bg;
+    .items {
+        @include media-up("sm") {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -$gutter-base;
+            margin-right: -$gutter-base;
+        }
+        .item {
+            @include media-down("md") {
+                &:not(:last-child) {
+                    margin-bottom: $gutter-base;
+                    padding-bottom: $gutter-base;
+                    border-bottom: $footer-border-width solid $footer-border-color;
+                }
+            }
+            @include media-up("sm") {
+                width: 50%;
+                flex-basis: 50%;
+                padding-left: $gutter-base;
+                padding-right: $gutter-base;
+            }
+            @include media-up("lg") {
+                width: 25%;
+                flex-basis: 25%;
+            }
+            p {
+                color: $light-color;
+            }
+            .social {
+                list-style-type: none;
+                display: flex;
+                li {
+                    padding: 0 math.div($gutter-sm, 2);
+                }
+            }
+            .links a {
+                display: block;
+                padding: $gutter-sm 0;
+                font-size: $font-size-sm;
+                @include transition(color);
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+            form {
+                input,
+                textarea {
+                    color: color.scale($footer-bg, $lightness: 60%);
+                    background: color.scale($footer-bg, $lightness: 10%);
+                }
+            }
+        }
+    }
+}
+
+.sub-footer {
+    padding: $gutter-lg;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: $font-size-sm;
+    font-weight: lighter;
+    color: $footer-color;
+    background: color.scale($footer-bg, $lightness: 10%);
+    a {
+        @include transition(color);
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}

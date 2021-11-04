@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "tools" as *;
+
+%make-container {
+    width: 100%;
+    margin: {
+        left: auto;
+        right: auto;
+    };
+    padding: {
+        left: $gutter-base;
+        right: $gutter-base;
+    }
+}
+
+.container {
+    @extend %make-container;
+    @each $breakpoint, $container-max-width in $container-max-widths {
+        @include media-up($breakpoint) {
+            max-width: $container-max-width;
+        }
+    }
+}
+
+.container-fluid {
+    @extend %make-container;
+}

@@ -1,0 +1,24 @@
+@use "sass:color";
+@use "variables" as *;
+
+@function to-rtl($value) {
+    $keys: (
+        "left": right,
+        "right": left,
+        "minus": '',
+        "plus": '-'
+    );
+    @if $rtl {
+        @return map-get($keys, $value);
+    }
+    @return $value;
+}
+
+@function color-hvr($color) {
+    @if ($color) {
+        @return color.scale($color, $lightness: 20%);
+    }
+    @else {
+        @return null;
+    }
+}

@@ -17,15 +17,14 @@
 
     <!-- CSS Files -->
     <!-- <link rel="stylesheet" href="css/fontawesome.min.css" /> -->
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/media.css" />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
 
   <body>
     <div class="modal" hidden>
       <div class="modal-body container">
         <div class="modal-header">
-          <button type="button" class="modal-close btn"><i class="fas fa-times"></i></button>
+          <button type="button" class="modal-close btn btn-primary"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-content">
           <img src="" alt="..." />
@@ -33,66 +32,58 @@
       </div>
     </div>
 
-    <button type="button" id="top"><i class="fas fa-chevron-up"></i></button>
-
-    <nav class="top-nav">
-      <div class="container">
-        <div><i class="far fa-clock"></i> Mon-Fri 09:00-17:00</div>
-        <div><i class="fas fa-phone-alt"></i> 090-080-0760</div>
-        <ul class="social">
-          <li>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fab fa-behance"></i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <button type="button" id="to-up" class="icon icon-primary"><i class="fas fa-chevron-up"></i></button>
 
     <header>
-      <div class="container">
-        <a class="brand" href="index.html">FINANCE BUSINESS</a>
-        <button type="button" class="navbar-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-        <nav class="navbar">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about-us.html">About</a></li>
-            <li><a href="services.html">Our Services</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
+      <nav class="top-nav">
+        <div class="container">
+          <div><i class="far fa-clock"></i> Mon-Fri 09:00-17:00</div>
+          <div><i class="fas fa-phone-alt"></i> 090-080-0760</div>
+          <ul class="social">
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a class="icon icon-primary" href="#"><i class="fab fa-behance"></i></a></li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
+
+      <nav class="navbar navbar-light">
+        <div class="container">
+          <a class="navbar-brand text-white" href="index.html">FINANCE BUSINESS</a>
+          <button type="button" class="navbar-toggle"><i class="fas fa-bars"></i></button>
+          <ul class="navbar-nav collapse">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Our Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <section id="main-banner" class="img-fill carousel">
-        <div class="container carousel-items">
-          <div class="item active">
-            <div class="desc">WE ARE READY TO HELP YOU</div>
-            <h1>FINANCIAL ANALYSIS <br />& CONSULTING</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-              Ad dolor aut atque velit repellendus maiores laborum? 
-            </p>
-            <a type="button" href="#" class="btn">READ MORE</a>
+      <section id="main-slider">
+        <div class="carousel img-fill container-fluid">
+          <div class="carousel-inner container">
+            <div class="carousel-item active">
+              <div class="item-caption">
+                <div class="sub-title uppercase">We are ready to help you</div>
+                <h1 class="item-title uppercase">Financial Analysis <br />& Consulting</h1>
+                <p class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolor aut atque velit repellendus maiores laborum?</p>
+                <a type="button" href="#" class="btn btn-primary read-more">Read More</a>
+              </div>
+              <div class="item-img overlay-img" style="background-image: url('images/analytics.jpg')"></div>
+            </div>
           </div>
-        </div>
-        <div class="carousel-control">
-          <a href="#main-banner" class="prev"><i class="fas fa-chevron-left"></i></a>
-          <a href="#main-banner" class="next"><i class="fas fa-chevron-right"></i></a>
+          <div class="carousel-control">
+            <a href="#main-slider" class="prev"></a>
+            <a href="#main-slider" class="next"></a>
+          </div>
         </div>
       </section>
 
-      <section id="call-back">
+      <section id="call-back" class="bg-primary">
         <div class="container">
           <div>
             <h2>Request a call back right now?</h2>
@@ -101,7 +92,7 @@
               attention to cars.
             </span>
           </div>
-          <a type="button" href="#contact-us" class="btn btn-light hashtag">CONTACT US</a>
+          <a type="button" href="#contact-us" class="btn btn-light btn-outline">CONTACT US</a>
         </div>
       </section>
 
@@ -118,18 +109,14 @@
               <div class="card-img">
                 <img class="lazyload" data-src="images/digital-currency.jpg" alt="Digital Currency" />
                 <div class="buttons">
-                  <a type="button" href="#"><i class="fas fa-link"></i></a>
-                  <button type="button" class="modal-open" data-image="images/digital-currency.jpg"><i class="fas fa-expand"></i></button>
+                  <a type="button" class="icon icon-primary" href="#"><i class="fas fa-link"></i></a>
+                  <button type="button" class="icon icon-primary modal-open" data-image="images/digital-currency.jpg"><i class="fas fa-expand"></i></button>
                 </div>
               </div>
               <div class="card-content">
                 <h2>Digital Currency</h2>
-                <p>
-                  However, developers said policies. Jasmine period of mourning
-                  in diameter or propaganda asset.<br />The lion now Oranais
-                  flat.
-                </p>
-                <a type="button" class="btn" href="#">READ MORE</a>
+                <p>However, developers said policies. Jasmine period of mourning in diameter or propaganda asset.<br />The lion now Oranais flat.</p>
+                <a type="button" class="btn btn-primary" href="#">READ MORE</a>
               </div>
             </div>
 
@@ -137,8 +124,8 @@
               <div class="card-img">
                 <img class="lazyload" data-src="images/market-analysis.jpg" alt="Market Analysis" />
                 <div class="buttons">
-                  <a type="button" href="#"><i class="fas fa-link"></i></a>
-                  <button type="button" class="modal-open" data-image="images/market-analysis.jpg"><i class="fas fa-expand"></i></button>
+                  <a type="button" class="icon icon-primary" href="#"><i class="fas fa-link"></i></a>
+                  <button type="button" class="icon icon-primary modal-open" data-image="images/market-analysis.jpg"><i class="fas fa-expand"></i></button>
                 </div>
               </div>
               <div class="card-content">
@@ -148,7 +135,7 @@
                   in diameter or propaganda asset.<br />The lion now Oranais
                   flat.
                 </p>
-                <a type="button" class="btn" href="#">READ MORE</a>
+                <a type="button" class="btn btn-primary" href="#">READ MORE</a>
               </div>
             </div>
 
@@ -156,8 +143,8 @@
               <div class="card-img">
                 <img class="lazyload" data-src="images/historical-data.jpg" alt="Historical Data" />
                 <div class="buttons">
-                  <a type="button" href="#"><i class="fas fa-link"></i></a>
-                  <button type="button" class="modal-open" data-image="images/historical-data.jpg"><i class="fas fa-expand"></i></button>
+                  <a type="button" class="icon icon-primary" href="#"><i class="fas fa-link"></i></a>
+                  <button type="button" class="icon icon-primary modal-open" data-image="images/historical-data.jpg"><i class="fas fa-expand"></i></button>
                 </div>
               </div>
               <div class="card-content">
@@ -167,7 +154,7 @@
                   in diameter or propaganda asset.<br />The lion now Oranais
                   flat.
                 </p>
-                <a type="button" class="btn" href="#">READ MORE</a>
+                <a type="button" class="btn btn-primary" href="#">READ MORE</a>
               </div>
             </div>
           </div>
@@ -191,7 +178,7 @@
               Fusce and poisoned out. Each casino, who wants it sparks hate velt
               television now, so that we do not set the temperature.
             </p>
-            <a type="button" class="btn" href="#">READ MORE</a>
+            <a type="button" class="btn btn-primary btn-outline" href="#">READ MORE</a>
           </div>
           <div class="items counters">
             <div class="item">
@@ -231,12 +218,12 @@
               eget out. Even more than that, grief football enforcement needs
               developers.
             </p>
-            <a type="button" class="btn" href="about-us.html">READ MORE</a>
+            <a type="button" class="btn btn-primary" href="about-us.html">READ MORE</a>
           </div>
         </div>
       </section>
 
-      <section id="testimonials">
+      <section id="testimonials" class="bg-light">
         <div class="container">
           <div class="text-center">
             <h1>What the say <span class="text-primary">about us</span></h1>
@@ -245,8 +232,8 @@
             </div>
           </div>
           <div class="carousel">
-            <div class="clients carousel-items">
-                <div class="client">
+            <div class="carousel-inner clients">
+                <div class="carousel-item client active">
                   <div class="inner-content">
                     <h2>George Walker</h2>
                     <strong class="text-primary">Chief Financial analyst</strong>
@@ -258,7 +245,7 @@
                   </div>
                   <img class="lazyload" data-src="images/client-1.png" alt="George Walker" />
                 </div>
-                <div class="client">
+                <div class="carousel-item client">
                   <div class="inner-content">
                     <h2>Andrew Boom</h2>
                     <strong class="text-primary">Marketing Head</strong>
@@ -272,8 +259,8 @@
                 </div>
             </div>
             <div class="carousel-control">
-              <a href="#testimonials" class="prev"><i class="fas fa-chevron-left"></i></a>
-              <a href="#testimonials" class="next"><i class="fas fa-chevron-right"></i></a>
+              <a href="#testimonials" class="prev"></a>
+              <a href="#testimonials" class="next"></a>
             </div>
           </div>
         </div>
@@ -287,8 +274,8 @@
               Before taking any step, you can contact us
             </div>
           </div>
-          <form>
-            <div class="group">
+          <form class="contact-form">
+            <div class="form-group">
               <div class="field">
                 <input type="text" placeholder="Full Name" />
               </div>
@@ -302,8 +289,8 @@
             <div class="field">
               <textarea rows="4" placeholder="Your Message"></textarea>
             </div>
-            <div class="text-center">
-              <button type="button" class="btn btn-light">Send Message</button>
+            <div class="submit text-center">
+              <button type="button" class="btn btn-light btn-outline">Send Message</button>
             </div>
           </form>
         </div>
@@ -311,17 +298,19 @@
 
       <section id="partners">
         <div class="container">
-          <div class="item">
-            <img class="lazyload" data-src="images/partner-01.png" alt="Partner Name" />
-          </div>
-          <div class="item">
-            <img class="lazyload" data-src="images/partner-01.png" alt="Partner Name" />
-          </div>
-          <div class="item">
-            <img class="lazyload" data-src="images/partner-01.png" alt="Partner Name" />
-          </div>
-          <div class="item">
-            <img class="lazyload" data-src="images/partner-01.png" alt="Partner Name" />
+          <div class="items">
+            <div class="item">
+              <img class="lazyload" data-src="images/partner-01.png" alt="Partner Name" />
+            </div>
+            <div class="item">
+              <img class="lazyload" data-src="images/partner-01.png" alt="Partner Name" />
+            </div>
+            <div class="item">
+              <img class="lazyload" data-src="images/partner-01.png" alt="Partner Name" />
+            </div>
+            <div class="item">
+              <img class="lazyload" data-src="images/partner-01.png" alt="Partner Name" />
+            </div>
           </div>
         </div>
       </section>
@@ -338,18 +327,10 @@
               sapien life.
             </p>
             <ul class="social">
-              <li>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-behance"></i></a>
-              </li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a class="icon icon-light" href="#"><i class="fab fa-behance"></i></a></li>
             </ul>
           </div>
 
@@ -387,8 +368,8 @@
               <div class="field">
                 <textarea rows="4" placeholder="Your Message"></textarea>
               </div>
-              <div class="text-center">
-                <button type="button" class="btn">Send Message</button>
+              <div class="submit text-center">
+                <button type="button" class="btn btn-light btn-outline">Send Message</button>
               </div>
             </form>
           </div>

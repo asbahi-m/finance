@@ -1,40 +1,41 @@
 $(function () {
   // Show/Hide Menu in navbar
   $(".navbar-toggle").on("click", function () {
-    $("nav.navbar").toggleClass("show");
+    $(".navbar-nav").toggleClass("show");
     $(this).toggleClass("active");
   });
 
   // Fixed Header and Navbar and Top icon when position
-  let startPosition = $(".img-fill").position().top + $(".img-fill").height();
+  // let startPosition = $(".img-fill").position().top + $(".img-fill").height();
+  let startPosition = $("main :first-child").height();
   let bodyEle = $("body");
-  let headerEle = $("header");
-  let topEle = $("#top");
+  let headerEle = $("header .navbar");
+  let toUp = $("#to-up");
   if ($(document).scrollTop() >= startPosition) {
-    bodyEle.css("margin-top", "120px");
+    bodyEle.css("margin-top", "100px");
     headerEle.addClass("fixed");
-    topEle.fadeIn();
+    toUp.fadeIn();
   }
 
   $(document).on("scroll", function () {
     // Fixed Header and Navbar and Top icon after scroll
     if ($(this).scrollTop() >= startPosition) {
-      if (topEle.is(":hidden")) {
-        bodyEle.css("margin-top", "120px");
+      if (toUp.is(":hidden")) {
+        bodyEle.css("margin-top", "100px");
         headerEle.addClass("fixed");
-        topEle.fadeIn();
+        toUp.fadeIn();
       }
     } else {
-      if (topEle.is(":visible")) {
+      if (toUp.is(":visible")) {
         bodyEle.css("margin-top", "0");
         headerEle.removeClass("fixed");
-        topEle.fadeOut();
+        toUp.fadeOut();
       }
     }
   });
 
   // Scroll document to up
-  topEle.on("click" ,function (event) {
+  toUp.on("click" ,function (event) {
     event.preventDefault();
     $("html").animate({ scrollTop: 0 }, "slow", function () {
       if (location.hash != '') {
@@ -46,21 +47,11 @@ $(function () {
   });
 
   // Hide/Show tabs panel on click
-  $("#tabs li").each(function () {
-    if ($(this).attr("aria-selected") == "true") {
-      $("#" + $(this).attr("aria-control")).attr("aria-hidden", "false");
-    }
-    $(this).on("click", function () {
-      if ($(this).attr("aria-selected") == "false") {
-        $("#tabs .tab-content article").attr("aria-hidden", "true").hide();
-        $("#tabs li").attr("aria-selected", "false");
-        $(this).attr("aria-selected", "true");
-        $("#" + $(this).attr("aria-control"))
-          .fadeIn()
-          .attr("aria-hidden", "false");
-      }
-    });
-  });
+  $("[role=tablist]").on("click", "[role=tab]:not(.active)", function () {
+    let tab = $(this).attr("aria-controls");
+    $(this).addClass("active").attr("aria-selected", true).siblings().removeClass("active").attr("aria-selected", false);
+    $("#" + tab).addClass("active").siblings().removeClass("active");
+  })
 
     // Nice Scroll Properties
     /* $("html").niceScroll({
@@ -115,7 +106,7 @@ $(function () {
       function checkViewedItem(item, customHeight = 0) {
         var eleOffset = $(item).offset().top;
         var docScroll = $(window).scrollTop();
-        var navFixedHeight = $("header.fixed").innerHeight();
+        var navFixedHeight = $(".navbar.fixed").innerHeight();
         if (docScroll + $(window).height() > (eleOffset + customHeight) && (docScroll + navFixedHeight) < (eleOffset + $(item).height() - customHeight))
           return true;
       }
@@ -123,7 +114,7 @@ $(function () {
       function setCounter() {
         if (checkViewedItem(".counters") && !viewed) {
           if ($(".counters .counter").length) {
-            $(".counter").each(function (index, item) {
+            $(".counter").each(function (_index, item) {
               if (checkViewedItem(item, $(item).height())) {
                 $(item).prop("counter", 0).animate({
                   counter: $(item).text()
